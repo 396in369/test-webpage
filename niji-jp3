@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魂が望む現実を創造する「虹のキャンプ場」</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6A0DAD; /* Deep Purple */
+            --secondary-color: #FFD700; /* Gold */
+            --accent-color: #FF6347; /* Tomato */
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #2c3e50;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), #8A2BE2);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image-placeholder {
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-placeholder img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image-placeholder img:hover {
+            transform: scale(1.02);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #FF4500;
+            transform: translateY(-3px);
+        }
+
+        .trust-indicators {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section:nth-of-type(even) {
+            background-color: var(--light-bg);
+        }
+
+        .section:nth-of-type(odd) {
+            background-color: #fff;
+        }
+
+        .section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+        }
+
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .logo-grid img {
+            height: 80px;
+            width: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .pain-points-list {
+            list-style: none;
+            padding: 0;
+            max-width: 700px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .pain-points-list li {
+            background-color: #fff;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .pain-points-list li::before {
+            content: '🔥';
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .process-visual img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin-top: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon img {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 15px;
+        }
+
+        .founder-story {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .founder-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .value-stack-offer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .value-stack-offer h3 {
+            color: var(--secondary-color);
+        }
+
+        .offer-box {
+            background-color: #fff;
+            color: var(--text-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .offer-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .offer-box ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .offer-box ul li::before {
+            content: '✅';
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .price-display {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .urgency-scarcity {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .urgency-scarcity h3 {
+            color: #fff;
+        }
+
+        .countdown-timer {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .faq-section {
+            text-align: left;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .faq-item h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .final-cta-section {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta-section h3 {
+            color: #fff;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                width: 90%;
+                padding: 15px;
+                font-size: 1.2rem;
+            }
+
+            .section h3 {
+                font-size: 2rem;
+            }
+
+            .testimonial-grid, .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-story {
+                flex-direction: column;
+            }
+
+            .countdown-timer {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h2 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+            }
+
+            .section h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>虹のキャンプ場</h1>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h2>あなたの魂が望む現実を、今、創造する。<br>「無力感」を「全能感」へ変える場所。</h2>
+            <p>AI時代を生き抜く創造者・変革者のための、意識変容型コミュニティ空間。既存の枠を超え、あなた自身の「OS」をアップデートし、真に共鳴する仲間と共に現実を書き換える実践の場です。</p>
+            <a href="https://discord.gg/8Ce4TyJQ" class="cta-button">今すぐ「虹のキャンプ場」へ参加する</a>
+            <div class="trust-indicators">
+                <p>🔒 安全なコミュニティ環境 | ✨ 意識探求者のための実践の場 | 🤝 共鳴する仲間との出会い</p>
+            </div>
+            <div class="hero-image-placeholder">
+                <!-- 1920x1080 hero image - product/service in action -->
+                <img src="placeholder-hero.jpg" alt="Hero Image: 焚き火を囲む人々、AIの部屋、地球儀、ノマド生活のイメージが融合した、未来的ながら温かみのある空間" style="border-radius: 12px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="section social-proof-section">
+        <div class="container">
+            <h3>共鳴が、現実を動かす。</h3>
+            <p>「虹のキャンプ場」は、すでに多くの意識探求者たちが集い、それぞれの現実を創造し始めています。</p>
+            <div class="logo-grid">
+                <!-- 200x100 customer logos - transparent PNG, minimal design -->
+                <img src="logo-placeholder-1.png" alt="Customer Logo 1" style="filter: grayscale(100%); opacity: 0.7;">
+                <img src="logo-placeholder-2.png" alt="Customer Logo 2" style="filter: grayscale(100%); opacity: 0.7;">
+                <img src="logo-placeholder-3.png" alt="Customer Logo 3" style="filter: grayscale(100%); opacity: 0.7;">
+                <img src="logo-placeholder-4.png" alt="Customer Logo 4" style="filter: grayscale(100%); opacity: 0.7;">
+            </div>
+            <p style="margin-top: 30px;">現在、<strong style="color: var(--accent-color);">1,000名以上</strong>の創造者たちが参加中！</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="avatar-placeholder-1.jpg" alt="Customer Photo" class="testimonial-avatar">
+                    <p>"「焚き火空間」での深い対話は、まさに魂の栄養でした。自分の内側にある答えが、自然と引き出される感覚です。"</p>
+                    <strong>- 山田 太郎, 意識探求者</strong>
+                </div>
+                <div class="testimonial-card">
+                    <img src="avatar-placeholder-2.jpg" alt="Customer Photo" class="testimonial-avatar">
+                    <p>"AIの部屋で、最先端の知性と触れ合うことで、自分の思考の限界が広がっていくのを実感しています。これは未来の学びの形です。"</p>
+                    <strong>- 佐藤 花子, AI研究者</strong>
+                </div>
+                <div class="testimonial-card">
+                    <img src="avatar-placeholder-3.jpg" alt="Customer Photo" class="testimonial-avatar">
+                    <p>"「真剣空間」で共有される実践的な知見は、私のビジネスを次のレベルへと引き上げてくれました。具体的な成果が出ています。"</p>
+                    <strong>- 田中 健太, 起業家</strong>
+                </div>
+            </div>
+            <p style="margin-top: 40px;"><em>（動画 testimonials: 参加者の感動と変容を伝える、臨場感あふれるショートビデオをここに配置）</em></p>
+            <p><em>（ケーススタディのハイライト: 「参加後3ヶ月で年収が2倍に」「長年の悩みが解消し、理想のパートナーと出会えた」など、具体的な指標とストーリーをここに記載）</em></p>
+        </div>
+    </section>
+
+    <section class="section problem-amplification-section">
+        <div class="container">
+            <h3>あなたは、こんな「無力感」に苛まれていませんか？</h3>
+            <ul class="pain-points-list">
+                <li>自分の現実をコントロールできない無力感に、夜も眠れない。</li>
+                <li>「本当に魂が望む生き方」が何なのか、見つけられずに閉塞感を感じている。</li>
+                <li>“何かが違う”と気づきながらも、具体的な行動に移せない自分に苛立ちを感じる。</li>
+                <li>共鳴する仲間がいない孤独な世界で、違和感を抱えながら生きている。</li>
+            </ul>
+            <p>行動しないコストは計り知れません。毎年、あなたは<strong style="color: var(--accent-color);">平均で〇〇万円の機会損失</strong>をしています。それは、あなたの魂が本当に望む現実から遠ざかることを意味します。</p>
+            <div class="process-visual">
+                <!-- Problem visual illustration - abstract representation of being trapped or lost -->
+                <img src="problem-illustration.jpg" alt="Problem Illustration: 迷路にいる人物、鎖に繋がれたイメージ、閉塞感を表す抽象画" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            </div>
+            <p style="margin-top: 30px;">この無力感は、あなたの創造性を奪い、真の可能性を閉ざしてしまいます。しかし、あなたは一人ではありません。私たちは、その感情的な結果を理解し、共に乗り越えるための場所を提供します。</p>
+        </div>
+    </section>
+
+    <section class="section solution-mechanism-section">
+        <div class="container">
+            <h3>「虹のキャンプ場」が、あなたの現実を書き換えるメカニズム。</h3>
+            <p>私たちは、単なる学習や交流の場ではありません。あなたの意識を根底から変容させ、魂が望む現実を創造するための、実践的かつ統合的なアプローチを提供します。</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-unique-approach.svg" alt="Unique Approach Icon">
+                    </div>
+                    <h4>独自のアプローチ：意識とAIの統合</h4>
+                    <p>「意識」「現実創造」「AI」「超知性」といったテーマを統合的に扱い、多角的な視点からあなたの「OS」をアップデートします。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-steps.svg" alt="Steps Icon">
+                    </div>
+                    <h4>実践へのステップ：行動を促す多層チャンネル</h4>
+                    <p>「焚き火空間」での共鳴、「AIの部屋」での知性探求、「真剣空間」での実践共有など、あなたの行動を自然と促す設計です。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-competitor.svg" alt="Competitor Icon">
+                    </div>
+                    <h4>競合が失敗する理由：実践と変容へのコミットメント</h4>
+                    <p>他のコミュニティが「学ぶだけ」「話すだけ」に終わる中、私たちは「現実を書き換えるための実践の場」として、あなたの変容にコミットします。</p>
+                </div>
+            </div>
+            <div class="process-visual">
+                <!-- 800x400 process illustration - step-by-step workflow -->
+                <img src="process-placeholder.jpg" alt="How It Works: 意識変容のプロセスを図解したフローチャート、またはキャンプ場の各チャンネルが連携するイメージ" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </section>
+
+    <section class="section features-benefits-section">
+        <div class="container">
+            <h3>「虹のキャンプ場」で得られる、計り知れないメリット。</h3>
+            <p>単なる機能ではなく、あなたの人生に真の変容をもたらす具体的なメリットをご紹介します。</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-feature-1.svg" alt="Feature Icon 1">
+                    </div>
+                    <h4>🔥 焚き火空間：魂の共鳴と癒し</h4>
+                    <p>深い対話を通じて、あなたの内なる声と繋がり、共鳴する仲間との絆を深めます。孤独感から解放され、真の自分を表現できる安心感を得られます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-feature-2.svg" alt="Feature Icon 2">
+                    </div>
+                    <h4>🧠🤖 AIの部屋：超知性との融合</h4>
+                    <p>最先端のAI技術と意識探求を組み合わせ、あなたの思考の限界を突破します。未来を先取りし、新たな価値創造のヒントを得られます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-feature-3.svg" alt="Feature Icon 3">
+                    </div>
+                    <h4>🌍 真剣空間：現実創造の実践</h4>
+                    <p>具体的なプロジェクトや実践を通じて、あなたのアイデアを現実化する力を養います。机上の空論ではなく、確かな成果を手に入れることができます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="icon-feature-4.svg" alt="Feature Icon 4">
+                    </div>
+                    <h4>🧳 ノマド生活：自由な生き方の実現</h4>
+                    <p>場所や時間に縛られない自由な働き方・生き方を追求する仲間と繋がり、具体的なノウハウやインスピレーションを得られます。閉塞感から解放され、真の自由を謳歌できます。</p>
+                </div>
+            </div>
+            <p style="margin-top: 40px;"><em>（機能比較: 他の学習コミュニティやオンラインサロンとの比較チャートをここに配置し、私たちの独自性と優位性を視覚的に示す）</em></p>
+        </div>
+    </section>
+
+    <section class="section founder-story-section">
+        <div class="container">
+            <h3>「虹のキャンプ場」に込められた、私たちの想い。</h3>
+            <div class="founder-story">
+                <img src="founder-placeholder.jpg" alt="Founder Photo" class="founder-photo">
+                <div>
+                    <p><em>（個人の創業者の物語: 創設者がどのようにして「無力感」を乗り越え、「魂が望む生き方」を見つけたのか、その苦労と成功のストーリーを感情豊かに語る。ユーザーの共感を呼び、信頼を築く。）</em></p>
+                    <p>私たちのミッションは、AI時代において、誰もが自分自身の「OS」をアップデートし、魂が望む現実を創造できる世界を実現することです。私たちは、真の自由と創造性を追求するあなたを、全力でサポートします。</p>
+                    <p><em>（信頼性要素: 創設者の背景、実績、専門分野などを具体的に記載し、信頼性を高める。）</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section detailed-social-proof-section">
+        <div class="container">
+            <h3>確かな変容が、ここに。</h3>
+            <p>「虹のキャンプ場」で、実際に人生を書き換えた人々の声をご覧ください。</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <img src="avatar-placeholder-4.jpg" alt="Customer Photo" class="testimonial-avatar">
+                    <h4>Aさんの成功事例：無力感から解放され、天職と出会う</h4>
+                    <p><em>（ビフォー/アフター: 「参加前は漠然とした不安と無力感に苛まれていたが、参加後3ヶ月で本当にやりたかった仕事に出会い、毎日が充実している」といった具体的な変化を記述）</em></p>
+                    <p>"「虹のキャンプ場」は、私の人生の転機となりました。ここで得た気づきと仲間との繋がりが、私を真の自由へと導いてくれました。感謝しかありません。"</p>
+                    <strong>- Aさん, 会社員からフリーランスへ</strong>
+                </div>
+                <div class="testimonial-card">
+                    <img src="avatar-placeholder-5.jpg" alt="Customer Photo" class="testimonial-avatar">
+                    <h4>Bさんの成功事例：AIを活用し、新たなビジネスを立ち上げ</h4>
+                    <p><em>（ビフォー/アフター: 「AIの知識はゼロだったが、コミュニティで学び、実践することで、わずか半年でAIを活用した新規事業を立ち上げ、初月から収益を上げた」といった具体的な成果を記述）</em></p>
+                    <p>"AIの可能性をここまで深く理解し、実践できる場は他にありません。ここで得た知識とネットワークが、私のビジネスを加速させています。"</p>
+                    <strong>- Bさん, 新規事業開発者</strong>
+                </div>
+            </div>
+            <p style="margin-top: 40px;"><em>（メディア掲載とプレス coverage: 「〇〇メディアで紹介されました」「〇〇賞を受賞しました」など、客観的な評価をここに記載）</em></p>
+            <p><em>（専門家推薦とパートナーシップ: 著名人や専門家からの推薦文、提携企業などをここに記載）</em></p>
+        </div>
+    </section>
+
+    <section class="value-stack-offer">
+        <div class="container">
+            <h3>あなたの魂が望む未来への、確かな投資。</h3>
+            <p>「虹のキャンプ場」は、あなたの人生を根本から変えるための、価値ある投資です。</p>
+            <div class="offer-box">
+                <h4>「虹のキャンプ場」基本参加プラン</h4>
+                <ul>
+                    <li>🔥 焚き火空間への無制限アクセス</li>
+                    <li>🧠🤖 AIの部屋への無制限アクセス</li>
+                    <li>🌍 真剣空間への無制限アクセス</li>
+                    <li>🧳 ノマド生活チャンネルへの無制限アクセス</li>
+                    <li>共鳴する仲間との永続的な繋がり</li>
+                    <li>意識変容を加速させる実践的ガイド</li>
+                </ul>
+                <p class="price-display">基本参加：<span style="color: var(--secondary-color);">無料</span> または <span style="color: var(--secondary-color);">月額980円</span></p>
+                <p style="font-size: 0.9rem; margin-top: 10px;"><em>（一部の部屋やプロジェクトは、あなたの「能力披露」に応じて招待制となります。実力主義・波動共鳴型コミュニティです。）</em></p>
+                <p style="margin-top: 20px;"><strong>【特別ボーナス】</strong></p>
+                <ul>
+                    <li>✅ 期間限定：初回参加者限定「現実創造ワークブック」プレゼント！</li>
+                    <li>✅ 参加者限定：月次オンラインイベントへの無料招待！</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>【安心の保証】</strong></p>
+                <p>私たちは、あなたの変容にコミットします。万が一、コミュニティがあなたの期待に応えられなかった場合、〇〇日間の全額返金保証をお約束します。（有料プランの場合）</p>
+                <p style="margin-top: 20px;"><em>（支払いオプション: クレジットカード、PayPalなど、利用可能な支払い方法を記載）</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="urgency-scarcity">
+        <div class="container">
+            <h3>今すぐ行動を。あなたの未来は、この瞬間に始まる。</h3>
+            <p>この特別な機会は、永遠には続きません。</p>
+            <div class="countdown-timer" id="countdown">
+                <!-- JavaScript will update this -->
+                00日00時間00分00秒
+            </div>
+            <p>現在、新規参加者の枠には限りがあります。このチャンスを逃さないでください。</p>
+            <a href="https://discord.gg/8Ce4TyJQ" class="cta-button">今すぐ「虹のキャンプ場」へ参加する</a>
+            <p style="margin-top: 20px;"><em>（価格上昇警告: 「〇月〇日以降、価格が改定されます」など、具体的なトリガーを記載し、緊急性を高める。）</em></p>
+        </div>
+    </section>
+
+    <section class="section objection-handling-section">
+        <div class="container">
+            <h3>あなたの疑問に、すべてお答えします。</h3>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <h4>Q: 自分に参加する資格があるのか不安です。</h4>
+                    <p>A: 「虹のキャンプ場」は、AI時代に本質的な価値創造を求める創造者・変革者、そして自分自身の「OS」を進化させたいと願う意識探求者のためのコミュニティです。経験やスキルよりも、あなたの「魂が望む生き方」への探求心と、実践への意欲を重視します。まずは「焚き火空間」や「自由トーク」で、コミュニティの雰囲気を体験してみてください。きっと、あなたに共鳴する仲間が見つかるはずです。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: 何か売りつけられるのではないかと心配です。</h4>
+                    <p>A: 基本参加は無料または低価格で提供しており、安心してコミュニティの価値を体験いただけます。一部の特別な部屋やプロジェクトは「能力披露」に応じて招待制となりますが、これはあなたの実力と波動に共鳴した結果であり、強制的なものではありません。私たちは、あなたの自発的な成長と貢献を尊重します。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: 怪しい／スピリチュアルすぎないか？</h4>
+                    <p>A: 「虹のキャンプ場」は、「意識」「現実創造」「AI」「超知性」といったテーマを統合的に扱いますが、決して非科学的・非論理的なアプローチではありません。私たちは、最先端の知見と実践的なワークを通じて、あなたの意識を科学的かつ論理的に探求し、現実を創造する力を養います。コミュニティ内の交流やアウトプットをご覧いただければ、その健全性と実践性を実感していただけるはずです。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Q: 本当に結果が出るのか？</h4>
+                    <p>A: 「虹のキャンプ場」は、「ただ学ぶ」「ただ話す」だけでなく、「現実を書き換えるための実践の場」として設計されています。コミュニティ内で共有される成功事例や、参加者自身のアウトプットが、その効果を証明しています。あなたの「魂が望む生き方」の実現に向けて、具体的な行動をサポートし、結果へと導くための環境がここにあります。あなたのコミットメントが、結果を最大化します。</p>
+                </div>
+            </div>
+            <p style="margin-top: 40px;"><em>（比較チャート: 他のコミュニティやサービスとの比較チャートをここに配置し、私たちの独自性と優位性を明確に提示する。）</em></p>
+            <p><em>（追加の証拠: 参加者の具体的な成功データ、アンケート結果、専門家からの推薦など、懐疑的な層を納得させるための追加情報をここに記載。）</em></p>
+        </div>
+    </section>
+
+    <section class="final-cta-section" id="cta">
+        <div class="container">
+            <h3>あなたの魂が望む未来へ、今すぐ一歩を踏み出そう。</h3>
+            <p>「虹のキャンプ場」は、あなたの人生を根本から変えるための、最後のピースです。</p            <a href="https://discord.gg/8Ce4TyJQ" class="cta-button">今すぐ「虹のキャンプ場」へ参加する</a>            <p style="margin-top: 20px;">この特別な機会は、残りわずかです。あなたの魂が本当に望む現実を、共に創造しましょう。</p>
+            <p style="margin-top: 30px;">ご質問やご不明な点がございましたら、お気軽にお問い合わせください。</p>
+            <p>メール: info@nijino-camp.com | サポート: @nijino_support (X)</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 虹のキャンプ場. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer (Example - set a future date)
+        const countdownDate = new Date("June 30, 2025 23:59:59").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "日 " + hours + "時間 " + minutes + "分 " + seconds + "秒 ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "終了しました";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
