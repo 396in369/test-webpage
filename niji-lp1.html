@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虹のキャンプ場⛺️ - マトリックスから脱出し、現実を創造する意識変容コミュニティ</title>
+    <meta name="description" content="AI時代の現実創造者が集う特別なコミュニティ。焚き火空間で真の共鳴を体験し、あなたの意識OSをアップデート。">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 8px 30px rgba(255,107,107,0.3);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255,107,107,0.4);
+        }
+        
+        .trust-indicators {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+        
+        .trust-item {
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        .trust-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffa500;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-white {
+            background: white;
+        }
+        
+        .section-gray {
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Solution Section */
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Community Proof */
+        .community-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .community-room {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #ffa500;
+        }
+        
+        .room-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .room-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #ffa500;
+            font-weight: 700;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author-info h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .urgency-timer {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .timer-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .time-unit {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 70px;
+        }
+        
+        .time-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffa500;
+        }
+        
+        .time-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .trust-indicators {
+                gap: 20px;
+            }
+            
+            .trust-number {
+                font-size: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .time-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🌈 現実創造者の秘密基地へようこそ ⛺️</h1>
+                <p class="hero-subtitle">マトリックスから脱出し、あなたの意識OSをアップデートする特別なコミュニティ</p>
+                <p class="hero-description">
+                    もう一人で悩む必要はありません。AI時代の現実創造者たちが集い、真の共鳴と進化を体験できる「虹のキャンプ場」で、あなたの魂が本当に望む生き方を発見してください。
+                </p>
+                <a href="#join" class="cta-button">🔥 焚き火空間で体験開始</a>
+                
+                <div class="trust-indicators">
+                    <div class="trust-item">
+                        <div class="trust-number">500+</div>
+                        <div>覚醒した創造者</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">24/7</div>
+                        <div>リアルタイム共鳴</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">∞</div>
+                        <div>可能性の拡張</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title">もしかして、こんな現実に閉塞感を感じていませんか？</h2>
+            <p class="section-subtitle">多くの現実創造者が抱える3つの根深い悩み</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😔</div>
+                    <h3>無力感の檻</h3>
+                    <p>自分の現実をコントロールできない感覚。何をやっても変わらない日常に囚われ、本来の力を発揮できずにいる状態...</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🌫️</div>
+                    <h3>魂の方向性迷子</h3>
+                    <p>「本当に魂が望む生き方」が見つからない閉塞感。社会の型にはまった生活に疑問を感じながらも、真の道筋が見えない...</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🏝️</div>
+                    <h3>深い孤独感</h3>
+                    <p>周りに共鳴する仲間がいない世界への違和感。「何かが違う」と気づいても、理解し合える人が見つからない孤立感...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">虹のキャンプ場⛺️が提供する解決策</h2>
+            <p class="section-subtitle">意識変容と現実創造のための統合型コミュニティ体験</p>
+            
+            <div class="solution-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3 class="feature-title">焚き火空間</h3>
+                    <p>真の共鳴を体験できる温かな交流の場。心の壁を溶かし、本音で語り合える安全な環境で、深いつながりを築けます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">AI意識統合</h3>
+                    <p>AIと人間の意識を融合させた次世代の学習体験。テクノロジーと直感を組み合わせ、従来の限界を超越します。</p>
+                </div>
+                <div class="feature-card">
+                    <div feature-icon">🧳</div>
+                    <h3 class="feature-title">ノマド実践</h3>
+                    <p>物理的・精神的自由を実現するライフスタイル設計。場所に縛られない生き方で、真の自由を手に入れます。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">能力覚醒</h3>
+                    <p>隠れた能力を発見・開発するための実践の場。あなたの中に眠る無限の可能性を引き出し、現実化します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Showcase -->
+    <section class="section section-white">
+        <div class="container">
+            <h2 class="section-title">多層チャンネルで進化を加速</h2>
+            <p class="section-subtitle">あなたの成長段階に応じた最適な環境を提供</p>
+            
+            <div class="community-showcase">
+                <div class="community-room">
+                    <h4 class="room-name">🔥 焚き火空間</h4>
+                    <p class="room-description">温かな交流とリアルタイム共鳴の場。心を開いた対話で深いつながりを築きます。</p>
+                </div>
+                <div class="community-room">
+                    <h4 class="room-name">🌍 真剣空間</h4>
+                    <p class="room-description">本質的な議論と深い洞察を共有。真剣な学びと成長を求める方のための特別な空間。</p>
+                </div>
+                <div class="community-room">
+                    <h4 class="room-name">🧠🤖 AIの部屋</h4>
+                    <p class="room-description">人工知能と意識の融合を探求。未来の可能性を一緒に創造していきます。</p>
+                </div>
+                <div class="community-room">
+                    <h4 class="room-name">🧳 ノマド生活</h4>
+                    <p class="room-description">場所に縛られない自由な生き方を実践。世界中からの体験談と実用的アドバイス。</p>
+                </div>
+                <div class="community-room">
+                    <h4 class="room-name">💫 能力披露</h4>
+                    <p class="room-description">あなたの才能と能力を発揮する舞台。お互いの成長を称え合う環境。</p>
+                </div>
+                <div class="community-room">
+                    <h4 class="room-name">🎯 成功・マインド</h4>
+                    <p class="room-description">成功のマインドセットと実践的な戦略を共有。理想の現実を創造するための知恵。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section section-gray">
+        <div class="container">
+            <h2 class="section-title">実際の変容体験</h2>
+            <p class="section-subtitle">参加者の生の声 - 焚き火空間での実体験から</p>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        長年感じていた孤独感が嘘のように消えました。ここには本当に理解し合える仲間がいて、自分の可能性を信じられるようになったんです。焚き火空間での対話が人生を変えました。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M.K</div>
+                        <div class="author-info">
+                            <h4>起業家・現実創造実践者</h4>
+                            <p>参加歴: 6ヶ月</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        AIの部屋での議論が目から鱗でした。テクノロジーと意識の融合という視点で、自分のビジネスを完全に変革できました。もう元の働き方には戻れません。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">T.S</div>
+                        <div class="author-info">
+                            <h4>AI研究者・ノマドワーカー</h4>
+                            <p>参加歴: 1年</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        能力披露の場で初めて自分の才能を認められた時、涙が止まりませんでした。ここは単なるコミュニティじゃない。魂の家族を見つけられる場所です。
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R.H</div>
+                        <div class="author-info">
+                            <h4>アーティスト・意識探求者</h4>
+                            <p>参加歴: 8ヶ月</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section cta-section" id="join">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">今、あなたの現実が変わる瞬間</h2>
+                <p class="cta-text">
+                    もう待つ必要はありません。真の仲間たちが、あなたの参加を心から待っています。<br>
+                    焚き火空間で、人生を変える出会いを体験してください。
+                </p>
+                
+                <div class="urgency-timer">
+                    <p class="timer-text">🔥 限定招待 - 次の募集まで</p>
+                    <div class="countdown">
+                        <div class="time-unit">
+                            <span class="time-number" id="days">07</span>
+                            <span class="time-label">日</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="hours">12</span>
+                            <span class="time-label">時間</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="minutes">34</span>
+                            <span class="time-label">分</span>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="seconds">56</span>
+                            <span class="time-label">秒</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://discord.gg/8Ce4TyJQ" class="cta-button" onclick="joinCommunity()">🌈 今すぐ虹のキャンプ場に参加する</a>
+                
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                    ※ 完全無料体験 | いつでも退会可能 | 安全・安心な環境
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const targetDate = now + (7 * 24 * 60 * 60 * 1000) + (12 * 60 * 60 * 1000) + (34 * 60 * 1000) + (56 * 1000);
+            const distance = targetDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Join Community Function
+        function joinCommunity() {
+            alert('🔥 焚き火空間へようこそ！\n\nDiscordサーバーへの招待リンクを送信しました。\nメールをご確認ください。\n\n※ 実際の実装では、Discord招待リンクまたは申し込みフォームに接続してください。');
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
