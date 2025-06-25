@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova - お支払い情報</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pricing.css">
+    <link rel="stylesheet" href="payment.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-nova">Nova</span>
+                    <span class="logo-dot">●</span>
+                </a>
+            </div>
+            <div class="nav-steps">
+                <div class="step completed">1. プラン選択</div>
+                <div class="step active">2. お支払い情報</div>
+                <div class="step">3. 完了</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                
+                <!-- Left Side - Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-header">
+                        <h2>注文内容</h2>
+                        <button class="edit-plan-btn" onclick="window.history.back()">
+                            <span>編集</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="m18.5 2.5 a 2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5Z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="plan-details">
+                        <div class="plan-info">
+                            <h3 id="selected-plan-name">Professional プラン</h3>
+                            <p id="selected-plan-description">チーム・ビジネス利用</p>
+                            <div class="plan-features-mini">
+                                <span>✓ 高度な分析ツール</span>
+                                <span>✓ 100GB ストレージ</span>
+                                <span>✓ 優先サポート</span>
+                                <span>✓ チームコラボレーション</span>
+                            </div>
+                        </div>
+                        <div class="plan-pricing">
+                            <div class="price-display">
+                                <span class="currency">¥</span>
+                                <span class="amount" id="plan-price">2,980</span>
+                                <span class="period" id="plan-period">/月</span>
+                            </div>
+                            <p class="billing-info" id="billing-info">月額請求</p>
+                        </div>
+                    </div>
+                    
+                    <div class="trial-info">
+                        <div class="trial-badge">
+                            <span class="trial-icon">🎉</span>
+                            <div class="trial-text">
+                                <h4>30日間無料トライアル</h4>
+                                <p>2024年2月15日まで無料でご利用いただけます</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-breakdown">
+                        <div class="breakdown-item">
+                            <span>プラン料金</span>
+                            <span id="plan-base-price">¥2,980/月</span>
+                        </div>
+                        <div class="breakdown-item discount">
+                            <span>30日間無料トライアル</span>
+                            <span id="trial-discount">-¥2,980</span>
+                        </div>
+                        <div class="breakdown-item tax">
+                            <span>消費税 (10%)</span>
+                            <span id="tax-amount">¥0</span>
+                        </div>
+                        <div class="breakdown-total">
+                            <span>今すぐお支払い</span>
+                            <span class="total-amount" id="total-amount">¥0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="money-back-guarantee">
+                        <div class="guarantee-icon">💰</div>
+                        <div class="guarantee-text">
+                            <h4>30日間返金保証</h4>
+                            <p>満足いただけない場合は全額返金いたします</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Payment Form -->
+                <div class="payment-form-container">
+                    <div class="form-header">
+                        <h2>お支払い情報</h2>
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <span class="security-icon">🔒</span>
+                                <span>SSL暗号化</span>
+                            </div>
+                            <div class="security-badge">
+                                <span class="security-icon">🛡️</span>
+                                <span>PCI DSS準拠</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="payment-form" id="payment-form">
+                        <!-- Payment Method Selection -->
+                        <div class="form-section">
+                            <h3>お支払い方法</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="card">
+                                    <input type="radio" id="card" name="payment-method" value="card" checked>
+                                    <label for="card">
+                                        <div class="method-icon">💳</div>
+                                        <span>クレジットカード</span>
+                                        <div class="card-icons">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNTFBNSIvPjx0ZXh0IHg9IjUiIHk9IjE0IiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI4Ij5WSVNBPC90ZXh0Pjwvc3ZnPg==" alt="Visa">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iI0VCMDAxQiIvPjx0ZXh0IHg9IjMiIHk9IjE0IiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI2Ij5NYXN0ZXI8L3RleHQ+PC9zdmc+" alt="MasterCard">
+                                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAzMCAyMCIgZmlsbD0ibm9uZSI+PHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiByeD0iNCIgZmlsbD0iIzAwNjZDQyIvPjx0ZXh0IHg9IjciIHk9IjE0IiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI4Ij5KQ0I8L3RleHQ+PC9zdmc+" alt="JCB">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-method" data-method="paypal">
+                                    <input type="radio" id="paypal" name="payment-method" value="paypal">
+                                    <label for="paypal">
+                                        <div class="method-icon">💰</div>
+                                        <span>PayPal</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Details -->
+                        <div class="form-section card-section">
+                            <h3>カード情報</h3>
+                            <div class="card-preview">
+                                <div class="card-front">
+                                    <div class="card-chip"></div>
+                                    <div class="card-number" id="card-display">•••• •••• •••• ••••</div>
+                                    <div class="card-info">
+                                        <div class="card-holder">
+                                            <span class="label">カード名義人</span>
+                                            <span class="value" id="holder-display">CARD HOLDER</span>
+                                        </div>
+                                        <div class="card-expiry">
+                                            <span class="label">有効期限</span>
+                                            <span class="value" id="expiry-display">MM/YY</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="card-number">カード番号</label>
+                                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                                <div class="card-type-indicator" id="card-type"></div>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="expiry-date">有効期限</label>
+                                    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="cvv">セキュリティコード</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                                    <div class="cvv-info">
+                                        <span class="info-icon">?</span>
+                                        <div class="tooltip">カード裏面の3桁または4桁の数字</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="card-holder">カード名義人</label>
+                                <input type="text" id="card-holder" name="card-holder" placeholder="YAMADA TARO" required>
+                            </div>
+                        </div>
+
+                        <!-- Billing Address -->
+                        <div class="form-section">
+                            <h3>請求先住所</h3>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="first-name">姓</label>
+                                    <input type="text" id="first-name" name="first-name" placeholder="山田" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="last-name">名</label>
+                                    <input type="text" id="last-name" name="last-name" placeholder="太郎" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="email">メールアドレス</label>
+                                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="postal-code">郵便番号</label>
+                                <input type="text" id="postal-code" name="postal-code" placeholder="123-4567" required>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="address">住所</label>
+                                <input type="text" id="address" name="address" placeholder="東京都渋谷区神宮前1-1-1" required>
+                            </div>
+
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label for="city">市区町村</label>
+                                    <input type="text" id="city" name="city" placeholder="渋谷区" required>
+                                </div>
+                                <div class="input-group">
+                                    <label for="prefecture">都道府県</label>
+                                    <select id="prefecture" name="prefecture" required>
+                                        <option value="">選択してください</option>
+                                        <option value="東京都">東京都</option>
+                                        <option value="大阪府">大阪府</option>
+                                        <option value="神奈川県">神奈川県</option>
+                                        <option value="愛知県">愛知県</option>
+                                        <!-- その他の都道府県... -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">
+                                    <a href="#" target="_blank">利用規約</a>および<a href="#" target="_blank">プライバシーポリシー</a>に同意します
+                                </label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">
+                                    製品アップデートやプロモーション情報を受け取る
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-submit">
+                            <button type="submit" class="btn-submit" id="submit-btn">
+                                <span class="btn-text">
+                                    <span class="lock-icon">🔒</span>
+                                    無料トライアルを開始
+                                </span>
+                                <span class="btn-loader" style="display: none;">
+                                    <div class="spinner"></div>
+                                    処理中...
+                                </span>
+                            </button>
+                            
+                            <div class="submit-info">
+                                <p>今すぐ請求は発生しません。30日後から課金開始となります。</p>
+                                <div class="security-info">
+                                    <span>🔒 256bit SSL暗号化による安全な通信</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Footer -->
+    <section class="trust-footer">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <span class="trust-icon">⚡</span>
+                    <span>即座にアクセス開始</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🔄</span>
+                    <span>いつでもキャンセル可能</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">💯</span>
+                    <span>30日間返金保証</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-icon">🏆</span>
+                    <span>100,000+ 満足ユーザー</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html> 
